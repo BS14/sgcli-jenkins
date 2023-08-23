@@ -1,0 +1,20 @@
+{
+    "ResrouceName": "tf-githubaction-sg-cli",
+    "Description": "Creating Resrource Group using the sg-cli and Githubaction",
+    "Tags": [
+        "azure",
+        "sg-cli",
+        "jenkinsCI",
+        "cicd"
+    ],
+    "TemplatesConfig": {
+        "templateGroupId": "/stackguardian/private-runner-azure:4",
+        "templates": [
+            {
+                "id": 0,
+                "WfType": "TERRAFORM",
+                "ResourceName": "azure-rg-sgcli"
+            }
+        ]
+    }
+}
