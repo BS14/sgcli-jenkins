@@ -14,7 +14,7 @@ pipeline {
 
             steps {
                 script {
-                    echo $SG_API_TOKEN
+                    echo $SG_ORG
                     
                     // Checkout the code
                     checkout scm
