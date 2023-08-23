@@ -29,8 +29,4 @@ pipeline {
         SG_ORG = "$SG_ORG"
         SG_WORKFLOW_GROUP = "$SG_WORKFLOW_GROUP"
     }
-
-    only {
-        branch 'main'
-    }
 }
