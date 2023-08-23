@@ -9,14 +9,12 @@ pipeline {
                SG_DASHBOARD_URL = "https://app.stackguardian.io/orchestrator"
                SG_ORG = "stackguardian"
                SG_WORKFLOW_GROUP = "jenkinsci"
+               SG_API_TOKEN = credentials('SG_API_TOKEN')
             }
 
             steps {
                 script {
-                    def SG_API_TOKEN = credentials('SG_API_TOKEN')
-                    env.SG_API_TOKEN = SG_API_TOKEN
                     echo $SG_API_TOKEN
-                    echo "SG_API_TOKEN: ${env.SG_API_TOKEN}"
                     
                     // Checkout the code
                     checkout scm
