@@ -13,7 +13,7 @@ pipeline {
 
             steps {
                 script {
-                    def sgApiToken = credentials('SG_API_TOKEN')
+                    def SG_API_TOKEN = credentials('SG_API_TOKEN')
                     
                     // Checkout the code
                     checkout scm
