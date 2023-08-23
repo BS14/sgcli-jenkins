@@ -10,7 +10,7 @@ pipeline {
                SG_ORG = "stackguardian"
                SG_WORKFLOW_GROUP = "jenkinsci"
             }
-            
+
             steps {
                 script {
                     def sgApiToken = credentials('SG_API_TOKEN')
@@ -25,7 +25,7 @@ pipeline {
                     sh 'wget https://raw.githubusercontent.com/StackGuardian/sg-cli/main/shell/sg-cli -O sg-cli'
 
                     // Run sg-cli command
-                    sh "bash sg-cli stack create --org ${sgOrg} --workflow-group ${sgWorkflowGroup} -- payload.json"
+                    sh "bash sg-cli stack create --org ${SG_ORG} --workflow-group ${SG_WORKFLOW_GROUP} -- payload.json"
                 }
             }
         }
