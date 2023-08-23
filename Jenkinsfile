@@ -15,6 +15,8 @@ pipeline {
                 script {
                     def SG_API_TOKEN = credentials('SG_API_TOKEN')
                     env.SG_API_TOKEN = SG_API_TOKEN
+                    echo $SG_API_TOKEN
+                    echo $SG_BASE_URL
                     
                     // Checkout the code
                     checkout scm
