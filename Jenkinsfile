@@ -1,17 +1,15 @@
 pipeline {
     agent any
+    environment {
+        SG_BASE_URL = "https://api.app.stackguardian.io"
+        SG_DASHBOARD_URL = "https://app.stackguardian.io/orchestrator"
+        SG_ORG = "stackguardian"
+        SG_WORKFLOW_GROUP = "jenkinsci"
+        SG_API_TOKEN = credentials('SG_API_TOKEN')
+        }
 
     stages {
         stage('sg_cli_jobs') {
-
-            environment {
-               SG_BASE_URL = "https://api.app.stackguardian.io"
-               SG_DASHBOARD_URL = "https://app.stackguardian.io/orchestrator"
-               SG_ORG = "stackguardian"
-               SG_WORKFLOW_GROUP = "jenkinsci"
-               SG_API_TOKEN = credentials('SG_API_TOKEN')
-            }
-
             steps {
                 script {
                     echo $SG_ORG
