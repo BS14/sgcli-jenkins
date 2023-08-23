@@ -3,13 +3,17 @@ pipeline {
 
     stages {
         stage('sg_cli_jobs') {
+
+            environment {
+               SG_BASE_URL = "https://api.app.stackguardian.io"
+               SG_DASHBOARD_URL = "https://app.stackguardian.io/orchestrator"
+               SG_ORG = "stackguardian"
+               SG_WORKFLOW_GROUP = "jenkinsci"
+            }
+            
             steps {
                 script {
-                    def sgBaseUrl = env.SG_BASE_URL
-                    def sgApiToken = env.SG_API_TOKEN
-                    def sgDashboardUrl = env.SG_DASHBOARD_URL
-                    def sgOrg = env.SG_ORG
-                    def sgWorkflowGroup = env.SG_WORKFLOW_GROUP
+                    def sgApiToken = credentials('SG_API_TOKEN')
                     
                     // Checkout the code
                     checkout scm
@@ -25,13 +29,5 @@ pipeline {
                 }
             }
         }
-    }
-
-    environment {
-        SG_BASE_URL = "$SG_BASE_URL"
-        SG_API_TOKEN = "$SG_API_TOKEN"
-        SG_DASHBOARD_URL = "$SG_DASHBOARD_URL"
-        SG_ORG = "$SG_ORG"
-        SG_WORKFLOW_GROUP = "$SG_WORKFLOW_GROUP"
     }
 }
