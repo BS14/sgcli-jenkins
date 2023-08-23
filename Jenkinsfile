@@ -12,6 +12,7 @@ pipeline {
                     def sgOrg = env.SG_ORG
                     def sgWorkflowGroup = env.SG_WORKFLOW_GROUP
                     
+                    node {
                     docker.image(dockerImage).inside {
                         sh 'apt-get update && apt-get install -y wget jq curl'
                         sh 'wget https://raw.githubusercontent.com/StackGuardian/sg-cli/main/shell/sg-cli -O sg-cli'
@@ -21,7 +22,7 @@ pipeline {
             }
         }
     }
-
+    }
     environment {
         SG_BASE_URL = "$SG_BASE_URL"
         SG_API_TOKEN = "$SG_API_TOKEN"
