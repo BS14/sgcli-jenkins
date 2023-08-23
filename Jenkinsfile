@@ -12,7 +12,6 @@ pipeline {
         stage('sg_cli_jobs') {
             steps {
                 script {
-                    echo $SG_ORG
                     
                     // Checkout the code
                     checkout scm
